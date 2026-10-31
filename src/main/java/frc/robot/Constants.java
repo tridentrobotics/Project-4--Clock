@@ -16,4 +16,12 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  public static class ClockConstants {
+    /** CAN ID of the clock motor's Talon FX. */
+    public static final int kMotorCanId = 2;
+
+    /** Motor output when running, from -1.0 (full reverse) to 1.0 (full forward). */
+    public static final double kRunSpeed = 0.2;
+  }
 }
