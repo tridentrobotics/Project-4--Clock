@@ -48,12 +48,11 @@ public class RobotContainer {
     new Trigger(m_exampleSubsystem::exampleCondition)
         .onTrue(new ExampleCommand(m_exampleSubsystem));
 
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    // Tick the clock motor 6 degrees every second (a second hand) while the B button is held.
+    m_driverController.b().whileTrue(m_clockSubsystem.secondHandCommand());
 
-    // Toggle the clock motor on/off with the A button.
-    m_driverController.a().onTrue(m_clockSubsystem.toggleCommand());
+    // Turn the clock motor 90 degrees, pause for a second, and repeat while the A button is held.
+    m_driverController.a().whileTrue(m_clockSubsystem.stepCommand());
   }
 
   /**

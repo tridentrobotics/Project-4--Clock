@@ -21,7 +21,34 @@ public final class Constants {
     /** CAN ID of the clock motor's Talon FX. */
     public static final int kMotorCanId = 2;
 
-    /** Motor output when running, from -1.0 (full reverse) to 1.0 (full forward). */
-    public static final double kRunSpeed = 0.2;
+    /**
+     * Motor rotations per step. 0.25 is 90 degrees of the motor shaft (before any gearbox); the
+     * sign sets the direction.
+     */
+    public static final double kStepRotations = -0.25;
+
+    /**
+     * Motor rotations per second-hand tick: 6 degrees, so a full turn takes 60 seconds. The sign
+     * sets the direction.
+     */
+    public static final double kSecondHandStepRotations = -1.0 / 60.0;
+
+    /** Seconds to wait between steps. */
+    public static final double kPauseSeconds = 15.0;
+
+    /** Position error, in motor rotations, under which a step counts as finished. */
+    public static final double kToleranceRotations = 0.01;
+
+    /** Longest a step may take before the pause starts anyway, in case it never settles. */
+    public static final double kStepTimeoutSeconds = 2.0;
+
+    /** Fastest the motor turns during a step, in rotations per second. Lower is slower. */
+    public static final double kCruiseRotationsPerSecond = 0.5;
+
+    /** How quickly the motor speeds up and slows down, in rotations per second squared. */
+    public static final double kAccelRotationsPerSecondSq = 1.0;
+
+    /** Position loop proportional gain, in volts per rotation of error. Tune on the robot. */
+    public static final double kP = 24.0;
   }
 }
