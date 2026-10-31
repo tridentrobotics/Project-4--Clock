@@ -1,6 +1,6 @@
 # Copilot Instructions
 
-This is a WPILib command-based Java FRC robot project (Trident Robotics, "Project 4 – Clock").
+This is a WPILib command-based Java FRC robot project (Trident Robotics, "Project 4 – Clock")
 
 ## Architecture
 
